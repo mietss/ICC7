@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "icc7.h"
 
+#include <string.h>
+
 #define MAX_LEN 256
 
 int read_words(char *filename, char arr[][MAX_LEN]) {
@@ -24,16 +26,23 @@ int read_words(char *filename, char arr[][MAX_LEN]) {
 }
 
 int count_unique_chars(char *s) {
-    int uniqueChar = 0;
-    int chars[26];
-    for (int i = 0; i < sizeof(s); i++) {
-        if (chars[*(s+i)-'a'] == 0) {
-            chars[*(s+i)-'a'] = 1;
-            uniqueChar++;
+    int count = 0;
+
+    for (int i = 0; i < strlen(s); i++){
+        int appears = 0;
+        for (int j = 0; j < i; j++){
+            if (s[j] == s[i]){
+                appears = 1;
+                break;
+            }
+        }
+
+        if (!appears){
+            count++;
         }
     }
 
-    return uniqueChar;
+    return count;
 }
 
 void swap(char* xp, char* yp){
