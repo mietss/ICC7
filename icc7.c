@@ -45,11 +45,6 @@ int count_unique_chars(char *s) {
     return count;
 }
 
-void swap(char* xp, char* yp){
-    char temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
 
 void sort_words(char arr[][MAX_LEN], int n) {
     int i, j;
@@ -58,12 +53,16 @@ void sort_words(char arr[][MAX_LEN], int n) {
         swapped = 0;
         for (j = 0; j < n - i - 1; j++) {
             if (count_unique_chars(arr[j]) > count_unique_chars(arr[j + 1])) {
-                swap(arr[j], arr[j + 1]);
+                char temp = *arr[j];
+                *arr[j] = *arr[j+1];
+                *arr[j+1] = temp;
                 swapped = 1;
             }
             if (count_unique_chars(arr[j]) == count_unique_chars(arr[j + 1])) {
                 if (arr[j][0] > arr[j + 1][0]) {
-                    swap(arr[j], arr[j + 1]);
+                    char temp = *arr[j];
+                    *arr[j] = *arr[j+1];
+                    *arr[j+1] = temp;
                     swapped = 1;
                 }
             }
