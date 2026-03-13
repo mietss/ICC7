@@ -1,5 +1,6 @@
 #ifndef _ICC7_H_
 #define _ICC7_H_
+#define MAX_LEN 256
 
 int read_words(char *filename, char arr[][MAX_LEN]);
 int count_unique_chars(char *s);
