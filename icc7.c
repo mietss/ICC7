@@ -5,8 +5,7 @@
 #include <stdlib.h>
 #include "icc7.h"
 
-
-#define MAX_LEN 25
+#define MAX_LEN 256
 
 int read_words(char *filename, char arr[][MAX_LEN]) {
     int numWords = 0;
